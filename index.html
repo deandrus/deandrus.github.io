@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Artist Profile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #DCCCBB; /* Light beige */
+            color: #333;
+        }
+
+        header {
+            background: #646E78; /* Muted gray-blue */
+            color: #fff;
+            padding: 20px 20px; /* Reduced padding for header */
+            text-align: center;
+            position: relative;
+        }
+
+        .artist-image {
+            display: block;
+            margin: 20px auto; /* Centered image */
+            width: 130px; /* Larger size */
+            height: 130px; /* 1x1 square size */
+            object-fit: cover; /* Ensures the image covers the area without distortion */
+            border: 3px solid #EAB464; /* Border to match the color palette */
+            transform: scale(1.3); /* Zoomed in by 30% */
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        header p {
+            margin-top: 10px;
+        }
+
+        nav {
+            background: #8D98A7; /* Soft gray-blue */
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        nav a {
+            color: #fff;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        section {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .bio, .portfolio, .contact, .spotify, .music-links {
+            margin-bottom: 40px;
+        }
+
+        .spotify a, .music-links a {
+            display: inline-block;
+            color: white;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            text-decoration: none;
+            border-radius: 5px;
+            text-align: center;
+            transition: background-color 0.3s;
+            margin: 10px;
+        }
+
+        /* Unified Button Color */
+        .spotify a, .music-links a {
+            background-color: #EAB464; /* Warm gold */
+        }
+
+        .spotify a:hover, .music-links a:hover {
+            background-color: #DCCCBB; /* Light beige on hover */
+        }
+
+        .portfolio img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        .audio {
+            display: block;
+            margin: 10px 0;
+        }
+
+        footer {
+            background: #A7754D; /* Warm brown */
+            color: #fff;
+            text-align: center;
+            padding: 10px 20px; /* Adjusted padding */
+        }
+
+        a {
+            color: #EAB464; /* Warm gold */
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .music-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        /* Maximize header on mobile */
+        @media (max-width: 768px) {
+            header {
+                padding: 20px 10px; /* Adjusted padding for small screens */
+            }
+            .artist-image {
+                width: 100px; /* Slightly smaller size for mobile */
+                height: 100px; /* 1x1 square size */
+                transform: scale(1.3); /* Zoomed in by 30% */
+            }
+            header h1 {
+                font-size: 2em; /* Adjust font size for small screens */
+            }
+            nav {
+                text-align: center;
+            }
+            section {
+                padding: 20px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>deandrus</h1>
+    <img src="deandruspfp.jpg" alt="deandrus" class="artist-image">
+    <p>howdy! have some tea while you're here :D 🍵</p>
+</header>
+
+<nav>
+    <a href="#bio">Bio</a>
+    <a href="#portfolio">Music</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+<section id="bio" class="bio">
+    <h2>About Me</h2>
+    <p>heyo! i'm a musician under the name deandrus, currently meddling in the lo-fi and video game world, with a focus on indie music inspired by my favorite artists like lana del rey, matt maltese, and laufey to name a few! so stay tuned for my originals songs soon. 💖 </p>
+</section>
+
+<section id="spotify" class="spotify">
+    <h2>Listen to My Music on Spotify!</h2>
+    <a href="https://open.spotify.com/artist/4uATC8r8ZxWAyfkM7ZzVdO" target="_blank">Visit My Spotify Profile</a>
+</section>
+
+<section id="portfolio" class="portfolio">
+    <h2>Music</h2>
+    <p>Here are some of my recent tracks:</p>
+
+    <!-- Spotify Track 1 -->
+    <iframe src="https://open.spotify.com/embed/track/34PKt2OTcrfFQwngqpq4Te?si=763d4f36ea37466a" width="100%" height="80" frameborder="0" allow="encrypted-media"></iframe>
+
+    <!-- Spotify Track 2 -->
+    <iframe src="https://open.spotify.com/embed/track/7MUTIihnUoxdO29NMsvY92?si=1e76546fdbe04c1a" width="100%" height="80" frameborder="0" allow="encrypted-media"></iframe>
+
+    <!-- Spotify Track 3 -->
+    <iframe src="https://open.spotify.com/embed/track/5PYaeyEbzNhH6kNxwbFD9x?si=f56c73cc571648aa" width="100%" height="80" frameborder="0" allow="encrypted-media"></iframe>
+</section>
+
+<section id="music-links" class="music-links">
+    <h2>Also Available On</h2>
+    <a href="https://music.apple.com/au/artist/deandrus/1746656951" target="_blank">Apple Music</a>
+    <a href="https://music.amazon.es/artists/B0D432NMSZ/deandrus" target="_blank">Amazon Music</a>
+    <a href="https://music.youtube.com/channel/UCmxCDpY_IuG7NWh6V8_LCHg" target="_blank">YouTube Music</a>
+</section>
+
+<section id="contact" class="contact" style="text-align: right;">
+    <h2>Contact Me</h2>
+    <p>If you'd like to get in touch, you can email me at <a href="mailto:musician@example.com">deandrus.music@gmail.com</a> or follow me on <a href="https://www.instagram.com/de.andrus/">Instagram</a>.</p>
+</section>
+
+<footer>
+    <p>&copy; 2024 deandrus. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
