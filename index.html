@@ -9,26 +9,25 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #DCCCBB; /* Light beige */
-            color: #333;
+            background-color: #1f2a23;
+            color: #e6e6e6;
         }
 
         header {
-            background: #646E78; /* Muted gray-blue */
+            background: linear-gradient(rgba(31,42,35,0.8), rgba(31,42,35,0.9));
             color: #fff;
-            padding: 20px 20px; /* Reduced padding for header */
+            padding: 20px;
             text-align: center;
-            position: relative;
         }
 
         .artist-image {
             display: block;
-            margin: 20px auto; /* Centered image */
-            width: 130px; /* Larger size */
-            height: 130px; /* 1x1 square size */
-            object-fit: cover; /* Ensures the image covers the area without distortion */
-            border: 3px solid #EAB464; /* Border to match the color palette */
-            transform: scale(1.3); /* Zoomed in by 30% */
+            margin: 20px auto;
+            width: 130px;
+            height: 130px;
+            object-fit: cover;
+            border: 3px solid #6f8f7a;
+            transform: scale(1.3);
         }
 
         header h1 {
@@ -38,10 +37,12 @@
 
         header p {
             margin-top: 10px;
+            font-size: 0.95em;
+            opacity: 0.9;
         }
 
         nav {
-            background: #8D98A7; /* Soft gray-blue */
+            background: #3f5146;
             padding: 10px 0;
             text-align: center;
         }
@@ -61,55 +62,41 @@
             text-align: center;
         }
 
-        .bio, .portfolio, .contact, .spotify, .music-links {
+        .bio, .portfolio, .contact, .spotify, .music-links, .fiverr {
             margin-bottom: 40px;
         }
 
-        .spotify a, .music-links a {
+        .spotify a, .music-links a, .fiverr a {
             display: inline-block;
+            background-color: #6f8f7a;
             color: white;
             padding: 15px 30px;
             font-size: 1.2em;
             text-decoration: none;
             border-radius: 5px;
-            text-align: center;
-            transition: background-color 0.3s;
+            transition: 0.3s;
             margin: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
         }
 
-        /* Unified Button Color */
-        .spotify a, .music-links a {
-            background-color: #EAB464; /* Warm gold */
+        .spotify a:hover, .music-links a:hover, .fiverr a:hover {
+            background-color: #8fae98;
         }
 
-        .spotify a:hover, .music-links a:hover {
-            background-color: #DCCCBB; /* Light beige on hover */
-        }
-
-        .portfolio img {
-            max-width: 100%;
-            height: auto;
-            margin-bottom: 10px;
-        }
-
-        .audio {
-            display: block;
-            margin: 10px 0;
+        iframe {
+            border-radius: 10px;
+            margin-bottom: 15px;
         }
 
         footer {
-            background: #A7754D; /* Warm brown */
+            background: #2a352d;
             color: #fff;
             text-align: center;
-            padding: 10px 20px; /* Adjusted padding */
+            padding: 10px 20px;
         }
 
         a {
-            color: #EAB464; /* Warm gold */
-        }
-
-        a:hover {
-            text-decoration: underline;
+            color: #9fc7ac;
         }
 
         .music-links {
@@ -118,25 +105,14 @@
             gap: 15px;
         }
 
-        /* Maximize header on mobile */
         @media (max-width: 768px) {
-            header {
-                padding: 20px 10px; /* Adjusted padding for small screens */
-            }
             .artist-image {
-                width: 100px; /* Slightly smaller size for mobile */
-                height: 100px; /* 1x1 square size */
-                transform: scale(1.3); /* Zoomed in by 30% */
+                width: 100px;
+                height: 100px;
             }
+
             header h1 {
-                font-size: 2em; /* Adjust font size for small screens */
-            }
-            nav {
-                text-align: center;
-            }
-            section {
-                padding: 20px;
-                text-align: center;
+                font-size: 2em;
             }
         }
     </style>
@@ -157,7 +133,7 @@
 
 <section id="bio" class="bio">
     <h2>About Me</h2>
-    <p>heyo! i'm a musician under the name deandrus, I am a music producer for 5 years and has worked with multiple artists worldwide through collaborations and commissions. My musical inspirations that heavily influence my style are artists like lana del rey, matt maltese, and laufey to name a few! so stay tuned for my originals songs soon. 💖 </p>
+    <p>heyo! i'm a musician under the name deandrus. I've been a music producer for 5 years and have worked with multiple artists worldwide through collaborations and commissions. My musical inspirations include Lana Del Rey, Matt Maltese, and Laufey. Stay tuned for original songs soon 💖</p>
 </section>
 
 <section id="spotify" class="spotify">
@@ -169,14 +145,11 @@
     <h2>Music</h2>
     <p>Here are some of my recent tracks:</p>
 
-    <!-- Spotify Track 1 -->
-    <iframe src="https://open.spotify.com/embed/track/34PKt2OTcrfFQwngqpq4Te?si=763d4f36ea37466a" width="100%" height="80" frameborder="0" allow="encrypted-media"></iframe>
+    <iframe src="https://open.spotify.com/embed/track/34PKt2OTcrfFQwngqpq4Te" width="100%" height="80" frameborder="0"></iframe>
 
-    <!-- Spotify Track 2 -->
-    <iframe src="https://open.spotify.com/embed/track/7MUTIihnUoxdO29NMsvY92?si=1e76546fdbe04c1a" width="100%" height="80" frameborder="0" allow="encrypted-media"></iframe>
+    <iframe src="https://open.spotify.com/embed/track/7MUTIihnUoxdO29NMsvY92" width="100%" height="80" frameborder="0"></iframe>
 
-    <!-- Spotify Track 3 -->
-   <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/4R54yyNqh9Q12YV7wv7Juu?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/4R54yyNqh9Q12YV7wv7Juu" width="100%" height="352" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
 </section>
 
 <section id="music-links" class="music-links">
@@ -186,14 +159,15 @@
     <a href="https://music.youtube.com/channel/UCmxCDpY_IuG7NWh6V8_LCHg" target="_blank">YouTube Music</a>
 </section>
 
-    <section id="fiverr" class="fiverr">
-    <h2>Visit my fiverr profile if you want me to make you a song!</h2>
-    <a href="https://www.fiverr.com/s/2K5vjGX" target="_blank">Visit My fiverr profile</a>
+<section id="fiverr" class="fiverr">
+    <h2>Visit my Fiverr profile if you want me to make you a song!</h2>
+    <a href="https://www.fiverr.com/s/2K5vjGX" target="_blank">Visit My Fiverr</a>
 </section>
-    
+
 <section id="contact" class="contact" style="text-align: right;">
     <h2>Contact Me</h2>
-    <p>If you'd like to get in touch, you can email me at <a href="mailto:musician@example.com">deandrus.music@gmail.com</a> or follow me on <a href="https://www.instagram.com/de.andrus/">Instagram</a>.</p>
+    <p>Email: <a href="mailto:deandrus.music@gmail.com">deandrus.music@gmail.com</a><br>
+    Instagram: <a href="https://www.instagram.com/de.andrus/" target="_blank">@de.andrus</a></p>
 </section>
 
 <footer>
