@@ -7,207 +7,150 @@
 
 <style>
 body {
-    margin: 0;
     font-family: Arial, sans-serif;
-    background: #1f2a23;
+    margin: 0;
+    padding: 0;
+    background-color: #1f2a23;
     color: #e6e6e6;
     overflow-x: hidden;
 }
 
-/* 🌫 DREAMY GRADIENT BACK */
-body::before {
-    content: "";
-    position: fixed;
-    width: 200%;
-    height: 200%;
-    background:
-    radial-gradient(circle at 20% 30%, #6f8f7a33, transparent),
-    radial-gradient(circle at 80% 70%, #a7c1b433, transparent);
-    animation: floatBg 25s linear infinite;
-    z-index: -3;
-}
-
-@keyframes floatBg {
-    0% { transform: translate(0,0); }
-    100% { transform: translate(-200px,-200px); }
-}
-
-/* 🎞 GRAIN */
+/* 🎞 FILM GRAIN OVERLAY */
 body::after {
     content: "";
     position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    background: url("https://grainy-gradients.vercel.app/noise.svg");
+    background-image: url("https://grainy-gradients.vercel.app/noise.svg");
     opacity: 0.08;
     pointer-events: none;
     z-index: 999;
 }
 
-/* ✨ CURSOR GLOW */
-.cursor {
-    position: fixed;
-    width: 140px;
-    height: 140px;
-    background: radial-gradient(circle, #a7c1b499, transparent 70%);
-    border-radius: 50%;
-    pointer-events: none;
-    transform: translate(-50%, -50%);
-    z-index: 998;
-}
-
-/* 📼 VHS EFFECT */
-.vhs {
-    position: relative;
-}
-
-.vhs::after {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: repeating-linear-gradient(
-        to bottom,
-        rgba(255,255,255,0.02) 0px,
-        rgba(255,255,255,0.02) 1px,
-        transparent 1px,
-        transparent 3px
-    );
-    pointer-events: none;
-}
-
-/* 🌈 CHROMATIC ABERRATION */
-.glitch:hover {
-    text-shadow:
-    2px 0 red,
-    -2px 0 blue;
-}
-
-/* 🌄 PARALLAX IMAGE */
-.parallax {
-    height: 300px;
-    background: url("pukepuke.jpg") center/cover no-repeat fixed;
-    opacity: 0.25;
-}
-
-/* 🌫 GLASS SECTIONS */
-section, header, nav {
-    backdrop-filter: blur(10px);
-}
-
-/* FADE IN */
+/* FADE IN ANIMATION */
 .fade {
     opacity: 0;
-    transform: translateY(30px);
-    animation: fade 1s ease forwards;
+    transform: translateY(20px);
+    animation: fadeIn 1s ease forwards;
 }
 
-@keyframes fade {
-    to { opacity: 1; transform: translateY(0); }
+.fade:nth-child(1) { animation-delay: 0.2s; }
+.fade:nth-child(2) { animation-delay: 0.4s; }
+.fade:nth-child(3) { animation-delay: 0.6s; }
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-/* HEADER */
 header {
+    background: linear-gradient(rgba(31,42,35,0.8), rgba(31,42,35,0.95));
     text-align: center;
-    padding: 40px;
+    padding: 30px 20px;
 }
 
 .artist-image {
+    margin: 20px auto;
     width: 140px;
     height: 140px;
     object-fit: cover;
-    border-radius: 50%;
-    border: 2px solid #8fae98;
-    transition: 0.4s;
+    border: 3px solid #6f8f7a;
+    transform: scale(1.2);
 }
 
-.artist-image:hover {
-    transform: scale(1.1) rotate(1deg);
-    filter: brightness(1.2);
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
 }
 
-/* NAV */
-nav {
-    text-align: center;
-    padding: 10px;
-}
-
-nav a {
-    margin: 0 15px;
-    color: white;
-    text-decoration: none;
+header p {
     opacity: 0.8;
 }
 
-nav a:hover {
-    opacity: 1;
-}
-
-/* 🎧 PLAYER */
-.player {
-    margin: 40px;
-    padding: 25px;
-    border-radius: 20px;
-    background: rgba(40,50,45,0.6);
-    box-shadow: 0 0 40px rgba(0,0,0,0.5);
-}
-
-.player button {
-    background: #6f8f7a;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 20px;
-    cursor: pointer;
-}
-
-.player input {
-    width: 100%;
-}
-
-/* FLOATING ANIMATION */
-.float {
-    animation: float 6s ease-in-out infinite;
-}
-
-@keyframes float {
-    0%,100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-}
-
-/* LINKS */
-a.button {
-    display: inline-block;
-    padding: 12px 25px;
-    background: #6f8f7a;
-    border-radius: 30px;
-    text-decoration: none;
-    color: white;
-    margin: 10px;
-}
-
-a.button:hover {
-    background: #8fae98;
-}
-
-/* FOOTER */
-footer {
+nav {
+    background: #3f5146;
+    padding: 10px;
     text-align: center;
+}
+
+nav a {
+    color: #fff;
+    margin: 0 15px;
+    text-decoration: none;
+}
+
+section {
+    padding: 30px 20px;
+    text-align: center;
+}
+
+/* 🎧 FEATURED TRACK */
+.featured {
+    background: #26332b;
+    border-radius: 12px;
+    margin: 30px;
     padding: 20px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.4);
+}
+
+.featured h2 {
+    margin-bottom: 10px;
+}
+
+/* BUTTONS */
+.spotify a, .music-links a, .fiverr a {
+    display: inline-block;
+    background-color: #6f8f7a;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 5px;
+    text-decoration: none;
+    margin: 10px;
+    transition: 0.3s;
+}
+
+.spotify a:hover, .music-links a:hover, .fiverr a:hover {
+    background-color: #8fae98;
+}
+
+iframe {
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.music-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+footer {
+    background: #2a352d;
+    text-align: center;
+    padding: 15px;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+    .artist-image {
+        width: 100px;
+        height: 100px;
+    }
 }
 </style>
 </head>
 
 <body>
 
-<div class="cursor" id="cursor"></div>
-
-<header class="fade vhs float">
-    <h1 class="glitch">deandrus</h1>
+<header class="fade">
+    <h1>deandrus</h1>
     <img src="pukepuke.jpg" class="artist-image">
     <p>howdy! have some tea while you're here 🍵</p>
 </header>
-
-<div class="parallax"></div>
 
 <nav class="fade">
     <a href="#bio">Bio</a>
@@ -215,15 +158,15 @@ footer {
     <a href="#contact">Contact</a>
 </nav>
 
-<section class="player fade vhs">
+<!-- 🎧 FEATURED TRACK -->
+<section class="featured fade">
     <h2>Latest Release</h2>
-    <audio id="audio" src="your-song.mp3"></audio>
-    <button onclick="togglePlay()">play / pause</button>
-    <input type="range" id="progress" value="0">
+    <iframe src="https://open.spotify.com/embed/track/4R54yyNqh9Q12YV7wv7Juu"
+    width="100%" height="80" frameborder="0" allow="encrypted-media"></iframe>
 </section>
 
-<section id="bio" class="fade float">
-    <h2 class="glitch">About Me</h2>
+<section id="bio" class="fade">
+    <h2>About Me</h2>
     <p>
     heyo! i'm deandrus. i've been producing music for 5 years and worked with artists worldwide.
     inspired by lana del rey, matt maltese, and laufey.
@@ -232,52 +175,37 @@ footer {
 </section>
 
 <section id="music" class="fade">
-    <h2>More Music</h2>
-    <audio controls src="song2.mp3"></audio><br><br>
-    <audio controls src="song3.mp3"></audio>
+    <h2>Music</h2>
+
+    <iframe src="https://open.spotify.com/embed/track/34PKt2OTcrfFQwngqpq4Te"
+    width="100%" height="80" frameborder="0" allow="encrypted-media"></iframe>
+
+    <iframe src="https://open.spotify.com/embed/track/7MUTIihnUoxdO29NMsvY92"
+    width="100%" height="80" frameborder="0" allow="encrypted-media"></iframe>
 </section>
 
-<section class="fade">
-    <a class="button" href="https://music.apple.com/">Apple Music</a>
-    <a class="button" href="https://music.youtube.com/">YouTube Music</a>
+<section class="music-links fade">
+    <a href="https://music.apple.com/au/artist/deandrus/1746656951" target="_blank">Apple Music</a>
+    <a href="https://music.amazon.es/artists/B0D432NMSZ/deandrus" target="_blank">Amazon Music</a>
+    <a href="https://music.youtube.com/channel/UCmxCDpY_IuG7NWh6V8_LCHg" target="_blank">YouTube Music</a>
 </section>
 
-<section id="contact" class="fade float">
+<section class="fiverr fade">
+    <h2>Work with me</h2>
+    <a href="https://www.fiverr.com/s/2K5vjGX" target="_blank">Hire me on Fiverr</a>
+</section>
+
+<section id="contact" class="fade">
     <h2>Contact</h2>
     <p>
-    deandrus.music@gmail.com<br>
-    @de.andrus
+    <a href="mailto:deandrus.music@gmail.com">deandrus.music@gmail.com</a><br>
+    <a href="https://www.instagram.com/de.andrus/" target="_blank">@de.andrus</a>
     </p>
 </section>
 
 <footer class="fade">
     <p>&copy; 2024 deandrus</p>
 </footer>
-
-<script>
-/* CURSOR GLOW */
-const cursor = document.getElementById('cursor');
-document.addEventListener('mousemove', e => {
-    cursor.style.left = e.clientX + 'px';
-    cursor.style.top = e.clientY + 'px';
-});
-
-/* PLAYER */
-const audio = document.getElementById("audio");
-const progress = document.getElementById("progress");
-
-function togglePlay() {
-    audio.paused ? audio.play() : audio.pause();
-}
-
-audio.addEventListener("timeupdate", () => {
-    progress.value = (audio.currentTime / audio.duration) * 100;
-});
-
-progress.addEventListener("input", () => {
-    audio.currentTime = (progress.value / 100) * audio.duration;
-});
-</script>
 
 </body>
 </html>
