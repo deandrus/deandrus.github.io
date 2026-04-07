@@ -1,178 +1,210 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Music Artist Profile</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #1f2a23;
-            color: #e6e6e6;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>deandrus</title>
 
-        header {
-            background: linear-gradient(rgba(31,42,35,0.8), rgba(31,42,35,0.9));
-            color: #fff;
-            padding: 20px;
-            text-align: center;
-        }
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #1f2a23;
+    color: #e6e6e6;
+    overflow-x: hidden;
+}
 
-        .artist-image {
-            display: block;
-            margin: 20px auto;
-            width: 130px;
-            height: 130px;
-            object-fit: cover;
-            border: 3px solid #6f8f7a;
-            transform: scale(1.3);
-        }
+/* 🎞 FILM GRAIN OVERLAY */
+body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+    opacity: 0.08;
+    pointer-events: none;
+    z-index: 999;
+}
 
-        header h1 {
-            margin: 0;
-            font-size: 2.5em;
-        }
+/* FADE IN ANIMATION */
+.fade {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 1s ease forwards;
+}
 
-        header p {
-            margin-top: 10px;
-            font-size: 0.95em;
-            opacity: 0.9;
-        }
+.fade:nth-child(1) { animation-delay: 0.2s; }
+.fade:nth-child(2) { animation-delay: 0.4s; }
+.fade:nth-child(3) { animation-delay: 0.6s; }
 
-        nav {
-            background: #3f5146;
-            padding: 10px 0;
-            text-align: center;
-        }
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
-        nav a {
-            color: #fff;
-            margin: 0 15px;
-            text-decoration: none;
-        }
+header {
+    background: linear-gradient(rgba(31,42,35,0.8), rgba(31,42,35,0.95));
+    text-align: center;
+    padding: 30px 20px;
+}
 
-        nav a:hover {
-            text-decoration: underline;
-        }
+.artist-image {
+    margin: 20px auto;
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+    border: 3px solid #6f8f7a;
+    transform: scale(1.2);
+}
 
-        section {
-            padding: 20px;
-            text-align: center;
-        }
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+}
 
-        .bio, .portfolio, .contact, .spotify, .music-links, .fiverr {
-            margin-bottom: 40px;
-        }
+header p {
+    opacity: 0.8;
+}
 
-        .spotify a, .music-links a, .fiverr a {
-            display: inline-block;
-            background-color: #6f8f7a;
-            color: white;
-            padding: 15px 30px;
-            font-size: 1.2em;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: 0.3s;
-            margin: 10px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-        }
+nav {
+    background: #3f5146;
+    padding: 10px;
+    text-align: center;
+}
 
-        .spotify a:hover, .music-links a:hover, .fiverr a:hover {
-            background-color: #8fae98;
-        }
+nav a {
+    color: #fff;
+    margin: 0 15px;
+    text-decoration: none;
+}
 
-        iframe {
-            border-radius: 10px;
-            margin-bottom: 15px;
-        }
+section {
+    padding: 30px 20px;
+    text-align: center;
+}
 
-        footer {
-            background: #2a352d;
-            color: #fff;
-            text-align: center;
-            padding: 10px 20px;
-        }
+/* 🎧 FEATURED TRACK */
+.featured {
+    background: #26332b;
+    border-radius: 12px;
+    margin: 30px;
+    padding: 20px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.4);
+}
 
-        a {
-            color: #9fc7ac;
-        }
+.featured h2 {
+    margin-bottom: 10px;
+}
 
-        .music-links {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-        }
+/* BUTTONS */
+.spotify a, .music-links a, .fiverr a {
+    display: inline-block;
+    background-color: #6f8f7a;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 5px;
+    text-decoration: none;
+    margin: 10px;
+    transition: 0.3s;
+}
 
-        @media (max-width: 768px) {
-            .artist-image {
-                width: 100px;
-                height: 100px;
-            }
+.spotify a:hover, .music-links a:hover, .fiverr a:hover {
+    background-color: #8fae98;
+}
 
-            header h1 {
-                font-size: 2em;
-            }
-        }
-    </style>
+iframe {
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.music-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+footer {
+    background: #2a352d;
+    text-align: center;
+    padding: 15px;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+    .artist-image {
+        width: 100px;
+        height: 100px;
+    }
+}
+</style>
 </head>
+
 <body>
 
-<header>
+<header class="fade">
     <h1>deandrus</h1>
-    <img src="pukepuke.jpg" alt="deandrus" class="artist-image">
-    <p>howdy! have some tea while you're here :D 🍵</p>
+    <img src="pukepuke.jpg" class="artist-image">
+    <p>howdy! have some tea while you're here 🍵</p>
 </header>
 
-<nav>
+<nav class="fade">
     <a href="#bio">Bio</a>
-    <a href="#portfolio">Music</a>
+    <a href="#music">Music</a>
     <a href="#contact">Contact</a>
 </nav>
 
-<section id="bio" class="bio">
+<!-- 🎧 FEATURED TRACK -->
+<section class="featured fade">
+    <h2>Latest Release</h2>
+    <iframe src="https://open.spotify.com/embed/track/4R54yyNqh9Q12YV7wv7Juu"
+    width="100%" height="80" frameborder="0" allow="encrypted-media"></iframe>
+</section>
+
+<section id="bio" class="fade">
     <h2>About Me</h2>
-    <p>heyo! i'm a musician under the name deandrus. I've been a music producer for 5 years and have worked with multiple artists worldwide through collaborations and commissions. My musical inspirations include Lana Del Rey, Matt Maltese, and Laufey. Stay tuned for original songs soon 💖</p>
+    <p>
+    heyo! i'm deandrus. i've been producing music for 5 years and worked with artists worldwide.
+    inspired by lana del rey, matt maltese, and laufey.
+    more originals soon 💖
+    </p>
 </section>
 
-<section id="spotify" class="spotify">
-    <h2>Listen to My Music on Spotify!</h2>
-    <a href="https://open.spotify.com/artist/4uATC8r8ZxWAyfkM7ZzVdO" target="_blank">Visit My Spotify Profile</a>
-</section>
-
-<section id="portfolio" class="portfolio">
+<section id="music" class="fade">
     <h2>Music</h2>
-    <p>Here are some of my recent tracks:</p>
 
-   <iframe src="https://open.spotify.com/embed/track/34PKt2OTcrfFQwngqpq4Te" width="100%" height="80" frameborder="0" allow="encrypted-media"></iframe>
+    <iframe src="https://open.spotify.com/embed/track/34PKt2OTcrfFQwngqpq4Te"
+    width="100%" height="80" frameborder="0" allow="encrypted-media"></iframe>
 
-<iframe src="https://open.spotify.com/embed/track/7MUTIihnUoxdO29NMsvY92" width="100%" height="80" frameborder="0" allow="encrypted-media"></iframe>
-
-<iframe src="https://open.spotify.com/embed/track/4R54yyNqh9Q12YV7wv7Juu" width="100%" height="80" frameborder="0" allow="encrypted-media"></iframe>
-    
+    <iframe src="https://open.spotify.com/embed/track/7MUTIihnUoxdO29NMsvY92"
+    width="100%" height="80" frameborder="0" allow="encrypted-media"></iframe>
 </section>
 
-<section id="music-links" class="music-links">
-    <h2>Also Available On</h2>
+<section class="music-links fade">
     <a href="https://music.apple.com/au/artist/deandrus/1746656951" target="_blank">Apple Music</a>
     <a href="https://music.amazon.es/artists/B0D432NMSZ/deandrus" target="_blank">Amazon Music</a>
     <a href="https://music.youtube.com/channel/UCmxCDpY_IuG7NWh6V8_LCHg" target="_blank">YouTube Music</a>
 </section>
 
-<section id="fiverr" class="fiverr">
-    <h2>Visit my Fiverr profile if you want me to make you a song!</h2>
-    <a href="https://www.fiverr.com/s/2K5vjGX" target="_blank">Visit My Fiverr</a>
+<section class="fiverr fade">
+    <h2>Work with me</h2>
+    <a href="https://www.fiverr.com/s/2K5vjGX" target="_blank">Hire me on Fiverr</a>
 </section>
 
-<section id="contact" class="contact" style="text-align: right;">
-    <h2>Contact Me</h2>
-    <p>Email: <a href="mailto:deandrus.music@gmail.com">deandrus.music@gmail.com</a><br>
-    Instagram: <a href="https://www.instagram.com/de.andrus/" target="_blank">@de.andrus</a></p>
+<section id="contact" class="fade">
+    <h2>Contact</h2>
+    <p>
+    <a href="mailto:deandrus.music@gmail.com">deandrus.music@gmail.com</a><br>
+    <a href="https://www.instagram.com/de.andrus/" target="_blank">@de.andrus</a>
+    </p>
 </section>
 
-<footer>
-    <p>&copy; 2024 deandrus. All rights reserved.</p>
+<footer class="fade">
+    <p>&copy; 2024 deandrus</p>
 </footer>
 
 </body>
